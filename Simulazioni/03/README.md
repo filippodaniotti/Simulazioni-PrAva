@@ -15,4 +15,5 @@
    * verifica se la stringa formata dalla concatenazione di questi caratteri è una permutazione della stringa `"bucefalo"`.
 7. Hai la classe `A` che è povera e possiede solamente un `int i` e un `B* bp`; rallegrale la giornata donandole un costruttore a un parametro e una ridefinizione degli operatori `+`, `-`, `++` preincremento, `++` postincremento, `=` (deep copy + move).
 8. You know what to do: 
-![es8](assets/es8.png)
+   
+   ![es8](assets/es8.png)
