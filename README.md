@@ -1,11 +1,11 @@
 # Risorse esame Programmazione Avanzata
 Repository contentente alcune risorse per agevolare agli studenti dell'Università di Trento nella preparazione dell'esame del corso Programmazione Avanzata.
 
-Al momento della realizzazione (Febbario 2021), il corso è tenuto dai professori Enrico Blanzieri e Pierluigi Roberti, i quali non hanno rilasciato alcun tipo di materiale di preparazione all'esame (testi di esami di anni precedenti, simulazioni, esercizi); da qui, appunto, nascono le motivazioni per condividere il materiale realizzato dagli autori.
+Al momento della realizzazione (Febbario 2021), il corso è tenuto dai professori Enrico Blanzieri e Pierluigi Roberti, i quali non hanno rilasciato alcun tipo di materiale di preparazione all'esame (testi di esami di anni precedenti, simulazioni, esercizi); da qui, appunto, nascono le motivazioni di realizzare e condividere del materiale utile per ripassare e esercitarsi.
 
 Le risorse sono di tre tipi:
-* _esami_: non si tratta dei testi veri e propri degli appelli, ma una loro trascrizione quanto più fedele possibile fatta a seguito dell'appello
-* _simulazioni_: questi testi sono realizzati ex novo da me e [Samuele Conti](https://www.github.com/samaretas) in vista di preparazione all'esame; sonostati preparati a seguito dell'appello di gennaio, per cui ricalcano abbastanza fedelmente struttura e argomenti che potrebbero capitare in un appello effettivo (fino a quando le modalità d'esame non saranno modificate, s'intende)
+* _esami_: non si tratta dei testi veri e propri degli appelli, ma di una loro trascrizione fatta a seguito dell'appello
+* _simulazioni_: questi testi sono realizzati ex novo in vista di preparazione all'esame; sono stati scritti a seguito dell'appello di gennaio, per cui ricalcano abbastanza fedelmente struttura e argomenti che potrebbero capitare in un appello effettivo (fino a quando le modalità d'esame non saranno modificate, ci s'intenda)
 * _teoria_: riassunti e note di teoria dall'aspetto non di certo idilliaco ma funzionali allo scopo; possono costituire una buona risorsa anche in vista di materiale da portare in sede d'esasme, dal momento che questo è open book, ma non si speri di affidarsi esclusivamente a queste: il tempo per svolgere la prova è estremamente risicato
 
 ## Struttura
