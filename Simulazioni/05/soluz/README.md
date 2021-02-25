@@ -46,8 +46,8 @@ class foo {
 ```
 La presenza di un metodo puramente virtuale renderà la classe puramente virtuale a sua volta, vale a dire non instanziabile e utilizzabile solo per derivare delle classi figlie.
 
-## Domanda 2s
-Un _lvalue_ è un valore che ha un preciso indirizzo in memoria ed è referenziabile; un _rvalue_ è un valore temporaneo che non possiede un indirizzo di memoria e non è referenziabile, solitamente delle costanti letterali, ad esempio (come numeri, `true`, `null`). Sono detti così perché gli _lvalue_ possono stare sia a sinistra che a destra di `=`, anche se solitamente li si trova più spesso a destra; di contro, gli _rvalue_ possono trovarsi solamente a destra dell'uguale.
+## Domanda 2
+Un _lvalue_ è un oggetto che ha un preciso indirizzo in memoria ed è referenziabile; un _rvalue_ è un oggettoz temporaneo che non possiede un indirizzo di memoria e non è referenziabile, solitamente delle costanti letterali, ad esempio (come numeri, `true`, `null`). Sono detti così perché gli _lvalue_ possono stare sia a sinistra che a destra di `=`, anche se solitamente li si trova più spesso a destra; di contro, gli _rvalue_ possono trovarsi solamente a destra dell'uguale.
 ```cpp
     int a = 3; // assegnamento lvalue = rvalue, ok
     int b = a; // lvalue = lvalue, ok
