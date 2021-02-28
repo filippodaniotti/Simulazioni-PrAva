@@ -22,4 +22,5 @@ Le risorse sono di tre tipi:
 
 ## Autori
 * [Filippo Daniotti](https://www.github.com/filippodaniotti): trascrizione appello di febbraio, simulazioni: 1, 3, trascrizione soluzioni
-* [Samuele Conti](https://www.github.com/samaretas): trascrizione appello di gennaio, simulazioni: 2, 4, 5, 6, revisione soluzioni
+* [Samuele Conti](https://www.github.com/samaretas): trascrizione appello di gennaio, simulazioni: 2, 4, 5, 6, revisione soluzioni, note lezioni e esercitazioni
+* [Francesco Bozzo](https://www.github.com/FrancescoBozzo): riassunto teorico

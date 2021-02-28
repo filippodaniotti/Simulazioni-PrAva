@@ -14,9 +14,7 @@ int main(int argc, char **argv)
 
 	function<void(string, int)> stampaStrana = [](string s, int n) {
 		for (int i = 0; i < n; ++i)
-		{
 			cout << s;
-		}
 	};
 
 	thread t1(stampaStrana, "tanti", N);

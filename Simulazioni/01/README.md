@@ -10,5 +10,7 @@
    * Un Power Ranger tutta una sua lista di Ammiratori, e ognuno di questi Ammiratori ammira diversi Power Ranger.
   
     Modella queste relazioni in maniera che un main con un'istanza di Power Ranger e relativa lista di ammiratori compili (puoi supporre la classe Ammiratore già implementata).
+
+    Nota: il secondo punto di questo esercizio mira a gestire la lettura dei riferimenti incrociati da parte del linker in un progetto multifile. L'argomento è stato trattato a lezione, ma non può essere richiesto in sede d'esame dal momento che il codice andrà copiato in una rich text area e il compilatore online utilizzabile non permette di gestire progetti multifile; per questi motivi, chi si trovasse ad avere poco tempo a disposizione per preparare l'esame potrebbe valutare di saltare questo esercizio. Questo naturalmente resta valido fino al cambio della modalità d'esame.
 7. Crea una lambda expression `stampaBizzarra` che riceve in input una stringa e un intero _n_ e stampa la stringa _n_ volte; crea due thread a cui passi questa funzione con le stringe `"tanti"` e `"ionico"`; assicurati che non ci siano inconsistenze nelle stampe.
 8. Considera una `unordered_map<int, int>`; scrivi una lampa expression che crei un vettore, una lista e un set di interi che contengano esattamente i valori della mappa suddetta nella posizione espressa dalla chiave; si gestiscano opportunemente le eccezioni nei casi in cui dovessero rendersi necessarie.
