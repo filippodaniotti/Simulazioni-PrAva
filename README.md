@@ -19,6 +19,10 @@ Le risorse sono di tre tipi:
   * [04](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Simulazioni/04)
   * [05](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Simulazioni/05)
   * [06](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Simulazioni/06)
+* [Teoria](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Teoria)
+  * [Note lezioni](https://samaretas.github.io/linkedNotes/programming_languages/C++/Note%20lezioni.pdf)  
+  * [Note esercitazioni](https://samaretas.github.io/linkedNotes/programming_languages/C++/Note%20esercitazioni.pdf)  
+  * [Riassunto](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Teoria)
 
 ## Autori
 * [Filippo Daniotti](https://www.github.com/filippodaniotti): trascrizione appello di febbraio, simulazioni: 1, 3, trascrizione soluzioni

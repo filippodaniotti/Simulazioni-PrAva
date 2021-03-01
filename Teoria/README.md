@@ -24,7 +24,7 @@ Questo riassunto invece può essere comodo per il ripasso e per essere utilizzat
     - [4.0.2. Classi puramente virtuali](#402-classi-puramente-virtuali)
     - [4.0.3. Ereditarietà multipla](#403-ereditarietà-multipla)
 - [5. Programmazione generica](#5-programmazione-generica)
-- [6. Move semantic](#6-move-semantic)
+- [6. Move semantics](#6-move-semantics)
     - [6.0.1. lvalue references](#601-lvalue-references)
     - [6.0.2. rvalue references](#602-rvalue-references)
     - [6.0.3. std::move (c++11)](#603-stdmove-c11)
@@ -77,13 +77,13 @@ Possiamo dichiarare una variabile in due modi:
 - `int valint(34);` come classi;
 - `int valint2 = 34;` come al solito.
 
-Le struct hanno attributi sempre accessibili dall'esterno (usare le classi).
+Le `struct` hanno attributi sempre accessibili dall'esterno (usare le classi).
 
 Definire come `const` quei metodi che non fanno modifiche all'oggetto.
 
 Quando definiamo un vettore di oggetti, ciascuno di essi viene inizializzato con il costruttore di default.
 
-La distruzione di oggetti nello stack avviene nell'ordine inverso della dichiarazione: p1, p2, p3 vengono distrutti secondo l'ordine p3, p2, p1.
+La distruzione di oggetti nello stack avviene nell'ordine inverso della dichiarazione: `p1`, `p2`, `p3` vengono distrutti secondo l'ordine `p3`, `p2`, `p1`.
 
 
 La parola chiave _inline_ si applica alle definizione di funzioni o funzioni membro come forma di ottimizzazione. Essa è una speciale direttiva al compilatore che, se eseguita, consiste nel sostituire la chiamata a funzione con il corpo della funzione stessa. In molti casi, per funzioni composte da poche istruzioni semplici e invocate frequentemente, ciò può comportare un incremento delle prestazioni, a scapito di un aumento delle dimensioni dell’eseguibile. Tuttavia, ciò non è sempre vero. Rendere una funzione effettivamente inline dipende dal compilatore C++, che applicando le sue euristiche sul codice, può eseguire questa direttiva o ignorarla, così come applicarla a metodi o funzioni che non abbiamo esplicitamente definito come inline.
@@ -91,7 +91,7 @@ La parola chiave _inline_ si applica alle definizione di funzioni o funzioni mem
 ### 1.0.1. Parametri facoltativi
 ```cpp
 class Persona {
-  Persona(const string& no, const string& co, int _eta=0);
+  Persona(const string& no, const string& co, int _eta = 0);
 };
 
 Persona::Persona(const string& no, const string& co, int _eta){ ... }
@@ -228,7 +228,7 @@ A& operator=(const A& _a) = delete;
 
 # 3. Overload degli operatori
 https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B
-Non è possibile aumentare la lista degli operatori
+Non è possibile aumentare la lista degli operatori.
 Possiamo definire gli operatori in uno dei due modi (_NON_ entrambi contemporaneamente):
 - `a = A::operator=(operator+(a1, a2))`  come funzione esterna;
 - `a = A::operator=(a1.operator+(a2))`  come metodo. 
@@ -255,7 +255,8 @@ class A {
     friend ostream& operator<<(ostream& os, const A& a);
 };
 A& operator=(const A& a){
-  if(this == &other) return *this; // evitiamo autoassegnazione
+  if(this == &other)
+      return *this; // evitiamo autoassegnazione
   k = a.k;
   return *this;
 }
@@ -291,7 +292,7 @@ bool A::operator<(const A& a) const {
   return i < a.i;
 }
 
-A A::operator()(double _d) const { // ogggetti funzione
+A A::operator()(double _d) const { // oggetti funzione
   return A(i * _d);
 }
 
@@ -333,7 +334,8 @@ a = b; // OK
 
 Nel costruttore della classe figlia:
 - se non chiamo il costruttore della classe padre, allora chiama il costruttore a zero parametri del padre. Nel caso non dovesse esistere allora errore in fase di compilazione;
-- bisogna chiamare un costruttore della classe padre nel ctor initializer: `Studente::Studente(const string& no, const string& co, int ma, int _eta) : Persona(no, co, _eta), matricola (ma)`
+- bisogna chiamare un costruttore della classe padre nel ctor initializer: 
+  `Studente::Studente(const string& no, const string& co, int ma, int _eta) : Persona(no, co, _eta), matricola (ma)`
 
 Per richiamare i metodi:
 - `stampa()` se è un metodo della classe figlia;
@@ -375,7 +377,7 @@ ostream& operator<<(ostream& os, const Studente& s) {
 Una classe puramente virtuale ha almeno un metodo puramente virtuale. Una classe puramente virtuale non ha istanze (può essere invece usata come classe base). La classe figlia deve necessariamente avere il metodo definito.
 ```cpp
 class A {
-  virtual int metodo()=0;
+  virtual int metodo() = 0;
 };
 ```
 Non è possibile dichiarare come virtual (altrimenti bisogna usare dei metodi di appoggio):
@@ -475,7 +477,7 @@ int main(int argc, char** argv) {
 # 5. Programmazione generica
 In C++ si usano i _templates_, che permettono di fissare il tipo parametrico a tempo di compilazione. Permettono di scrivere codice a prescindere dal tipo di dato che verrà utilizzato durante l'esecuzione.
 
-Abbiamo due tipi di template (per Roberti). In realtà **sono la stessa identica cosa**:
+A lezione è stato detto che abbiamo due tipi di template. In realtà **sono la stessa identica cosa** (https://www.cplusplus.com/doc/oldtutorial/templates/):
 - funzioni -> `template <typename T>`;
 - classi -> `template <class T>`, da implementare tutto nel `.h` (dentro o fuori la classe).
 
@@ -585,7 +587,7 @@ ostream& operator <<(ostream& os, const Myarraytemp<T>&a){
 }
 ```
 
-# 6. Move semantic
+# 6. Move semantics
 http://www.cplusplus.com/reference/utility/move/
 Definizione:
 - _lvalue_: valori che possono stare a sinistra delle chiamate dell'operatore di assegnazione (ha un indirizzo in memoria);
@@ -690,7 +692,7 @@ class A {
     A();
     A(int _i, string _s);
     A(const A& _a);
-    A& operator=(const A& _a); //a=(b=c)
+    A& operator=(const A& _a); //a = (b = c)
     
     // parametro non deve essere const perché deve essere modificabile
     A(A&& _a); 
@@ -735,6 +737,7 @@ A::A(A&& _a){ // costruttore move -> l'oggetto in partenza è vuoto
   pb = _a.pb;   // si impossessa il puntatore dell'altro
   _a.pb = NULL; // lasciamo _a in uno stato valido (evitiamo che venga
                 // cancellata la memoria con una potenziale delete)
+  i = _a.i;
   _a.i = 0; // consuma il parametro passato
 }
 
@@ -1158,7 +1161,7 @@ Per tutti esiste l'operatore `++`.
 
 Nota su l'iteratore `.end()`: si riferisce ad un elemento che **segue** l'ultimo elemento della lista. Dunque end non si può mai dereferenziare.
 
-Numero di elementi fra due iteratori: `distance(v.begin(), found)`
+Numero di elementi fra due iteratori: `distance(v.begin(), found)`.
 
 Esistono i `const_iterator` che non permettono di modificare gli elementi (`*cit = 3` errore a compile time).
 ```cpp
