@@ -121,6 +121,7 @@ Nel dettaglio, i tipi di passaggio sono tali che:
 * riferimento: va specificata con `&` e, come ci si aspetta, i cambiamenti fatti ai parametri passati in questo modo
   permangono anche fuori dallo scope.
 
+Un esempio d'uso:
 ```cpp
 list<int> l;
 int accumulator = 0;
