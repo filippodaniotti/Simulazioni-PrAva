@@ -1,4 +1,4 @@
-# Risorse esame Programmazione Avanzata
+# Risorse esame Programmazione Avanzata [![This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 Repository contentente alcune risorse per agevolare agli studenti dell'Università di Trento nella preparazione dell'esame del corso Programmazione Avanzata.
 
 Al momento della realizzazione (Febbario 2021), il corso è tenuto dai professori Enrico Blanzieri e Pierluigi Roberti, i quali non hanno rilasciato alcun tipo di materiale di preparazione all'esame (testi di esami di anni precedenti, simulazioni, esercizi); da qui, appunto, nascono le motivazioni di realizzare e condividere del materiale utile per ripassare e esercitarsi.
