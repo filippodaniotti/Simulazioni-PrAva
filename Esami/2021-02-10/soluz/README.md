@@ -65,7 +65,7 @@ class C
 
 ## Domanda 3
 In `C++` abbiamo i concetti di lvalue e rvalue: i primi possiedono un indirizzo
-in memoria e possono trovarsi sia a sinistra che a destrad di un oepratore di
+in memoria e possono trovarsi sia a sinistra che a destra di un operatore di
 assegnazione, i secondi invece sono dei valori che non possiedono indirizzo in
 memoria (solitamente costanti letterali o valori temporanei) e possono trovarsi
 solo a destra dell'uguale.

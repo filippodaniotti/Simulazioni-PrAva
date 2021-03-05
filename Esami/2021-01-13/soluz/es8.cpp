@@ -17,7 +17,10 @@ int main(int argc, char** argv) {
 	m.insert(pair<string, int> ("B", 3));
 	m.insert(pair<string, int> ("A", 16));
 	
-	// TBD
+	multimap<int, string> im;
+	for (auto& p : m) {
+		im.insert({p.second, p.first});
+	}
 
 	return 0;
 }

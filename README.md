@@ -8,7 +8,7 @@ Le risorse sono di tre tipi:
 * _simulazioni_: questi testi sono realizzati ex novo in vista di preparazione all'esame; sono stati scritti a seguito dell'appello di gennaio, per cui ricalcano abbastanza fedelmente struttura e argomenti che potrebbero capitare in un appello effettivo (fino a quando le modalità d'esame non saranno modificate, ci s'intenda)
 * _teoria_: riassunti e note di teoria dall'aspetto non di certo idilliaco ma funzionali allo scopo; possono costituire una buona risorsa anche in vista di materiale da portare in sede d'esasme, dal momento che questo è open book, ma non si speri di affidarsi esclusivamente a queste: il tempo per svolgere la prova è estremamente risicato
 
-## Struttura
+## Contenuti
 * [Esami](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Esami)
   * [Gennaio](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Esami/2021-01-13)
   * [Febbraio](https://github.com/filippodaniotti/Simulazioni-PrAva/tree/master/Esami/2021-02-10)

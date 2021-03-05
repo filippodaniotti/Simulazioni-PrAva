@@ -35,8 +35,8 @@ class Allevamento
   private:
   	list<Alpaca*> alpaca;
   public:
-	void add (Alpaca* _a) {
-		alpaca.push_back(_a);
+	void add (const Alpaca* _a) {
+		alpaca.push_back(new Alpaca(*(_a)));
 	}
 };
 
@@ -69,14 +69,21 @@ int main(int argc, char** argv) {
 	l.push_back(Alpaca("rubare", 3, "la droga"));
 	
 	
-	
+	int counter = 0; // non c'è modo di ottenere l'indice
+	int iter = 0; 	 // di un elemento nella lista altrimenti
 	for_each(m.begin(), m.end(), 
-		[&, l, m] (pair<Allevatore, Allevamento> p) {
-			// m[(p.first)];
+		[l, &counter, &iter] (map<Allevatore, Allevamento>::iterator p) {
+			for (auto it = l.begin(); it != l.end(); ++it) {
+				if (iter == 0 && counter % 2 == 0) {
+					p->second.add(&(*it));
+				} else if (iter == 1 && counter % 2 == 1) {
+					p->second.add(&(*it));
+				}
+			++counter;
+			}
+		++iter;
 		}
 	);
-	
-	// for_each(m.begin(), m.end(), lam)
 	
 	return 0;
 }

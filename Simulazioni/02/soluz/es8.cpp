@@ -39,7 +39,7 @@ int main()
     print(p);
 
     for (int i = 0; i < 2; ++i)
-        p.insert(getIt(p, rand() % len + 1), 1, "Paolo");
+        p.insert(getIt(p, rand() % len + 1), 1, "Arti");
     for (int i = 0; i < 3; ++i)
         p.insert(getIt(p, rand() % len + 1), 1, "Giovanni");
     print(p);
@@ -65,7 +65,7 @@ int main()
      * bensì prende gli elementi uguali (op. ==) al terzo argomento e li
      * sposta in fondo al vettore, e ritorna un iteratore che punta al primo
      * elemento rimosso.
-     * Il lavoro di cancellare gli elementi viene fatto dal metodo erare() 
+     * Il lavoro di cancellare gli elementi viene fatto dal metodo erase() 
      * di std::list<>, che per l'appunto elimina dalla lista gli elementi
      * compresi tra i due iteratori passati; è per questo che noi inseriamo
      * remove() come primo parametro di p.erase().

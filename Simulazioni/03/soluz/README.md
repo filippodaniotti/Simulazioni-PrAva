@@ -7,10 +7,10 @@ Le lambda, tuttavia, offrono un meccanismo particolare molto interessante che le
 corpo della funzione
 };
 ```
-L’osservatore più attento avrà notato che tra le parentesi quadre si vede appunto una zona chiamata parametri catturati; qui vanno posti proprio i nomi di quelle variabili che vogliamo vengano catturate dalla nostra lambda, ovvero varibli che sono visibili nello stesso scope della lambda e che, una volta passate per cattura, la lambda può utilizzare al suo interno. Questo meccanismo offre due modalità di cattura: per copia (normale) o per riferimento (con l’apposizione della canonica `&` prima del nome della variabile da catturare), sai già cosa significa.
+L’osservatore più attento avrà notato che tra le parentesi quadre si vede appunto una zona chiamata parametri catturati; qui vanno posti proprio i nomi di quelle variabili che vogliamo vengano catturate dalla nostra lambda, ovvero variabili che sono visibili nello stesso scope della lambda e che, una volta passate per cattura, la lambda può utilizzare al suo interno. Questo meccanismo offre due modalità di cattura: per copia (normale) o per riferimento (con l’apposizione della canonica `&` prima del nome della variabile da catturare), sai già cosa significa.
 
 Altre cose notevoli:
-* di per sé, il ccontenuto did una variabile catturata per copia non può essere modificato, nemmeno localmente nello scope della lambda; se vogliamo che questo sia possibile, possiamo aggiungere la keyword `mutable` a seguito delle parentesi tonde;
+* di per sé, il contenuto di una variabile catturata per copia non può essere modificato, nemmeno localmente nello scope della lambda; se vogliamo che questo sia possibile, possiamo aggiungere la keyword `mutable` a seguito delle parentesi tonde;
 * una lambda expression può essere assegnata a una variable dichiarata con la keyword `auto`;
 * il tipo di ritorno di una lambda può essere tipizzato esplicitamente dal programmatore (altrimenti verrà fatto in automatico dal compilatore);
 ecco un'espressione che mostra la sintassi tutto quanto detto sopra:
