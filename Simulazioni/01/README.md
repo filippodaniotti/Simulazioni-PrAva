@@ -6,7 +6,8 @@
 4. Spiega cosa sono i thread, come li possiamo usare e perché sono utili; spiega il data race problem e come possiamo risolverlo.
 ## Pratica
 5. Supponi di avere un vettore di interi casuali positivi (inventalo); crea una funzione `booleanizzazione` che riceve in input il vettore e ne sostituisca ogni elemento con _0_ oppure _1_, a seconda che il numero sia rispettivamente pari o dispari; deve essere utilizzata una lambda expression.
-6. * Un Antropomorfo ha un certo numero di arti; un Umano ha un nome e un'età; un Megazord ha una _coolness_ e un animale associato; un Power Ranger è un Umano e anche un Megazord.
+6. [NOTA: questo esercizio è un filo da ripensare]
+   * Un Antropomorfo ha un certo numero di arti; un Umano ha un nome e un'età; un Megazord ha una _coolness_ e un animale associato; un Power Ranger è un Umano e anche un Megazord.
    * Un Power Ranger tutta una sua lista di Ammiratori, e ognuno di questi Ammiratori ammira diversi Power Ranger.
   
     Modella queste relazioni in maniera che un main con un'istanza di Power Ranger e relativa lista di ammiratori compili (puoi supporre la classe Ammiratore già implementata).
