@@ -1,11 +1,10 @@
 ## Domanda 1
 Un metodo si definisce astratto (o, per dirla in maniera più propria per `C++`, *virtuale*)
-quando ne viene forzato il late binding anteponendogli alla forma la keyword `virtual`.
+quando ne viene forzato il late binding anteponendogli alla dichiarazione del tipo di ritorno la keyword `virtual`.
 
 Si forza il late binding nelle situazioni in cui facciamo uso di ereditarietà
 e si corre il rischio che, istanziando una classe a runtime mediante la dichiarazione
-di un puntatore alla classe padre, si verifichino dei name clash e
-il compilatore non sia in grado di determinare qual è il metodo corretto da applicare;
+di un puntatore alla classe padre, si richiami un metoodo pensando di invocare quello della classe figlia (classe effettiva a runtime) ma so vada in effetti ad usare quello della classe padre (classe statica riconosciuta a compile time);
 per l'appunto, risolvendo il binding del metodo a runtime si risolve questo problema.
 
 ```cpp
@@ -30,7 +29,9 @@ public:
 
 int main() {
     A bp = new B();
-    bp.daSovrascrivere(1); // senza virtual avremmo problemi
+    bp.daSovrascrivere(1); // senza virtual andremmo a richiamare
+                           // il metodo di A::daSovrascrivere, 
+                           // mentre ora usiamo B::daSovrascrivere
 }
 ```
 
@@ -38,8 +39,8 @@ Inoltre, mediante una precisa sintassi, la keyword `virtual` può essere usata p
 un metodo *puramente virtuale*, ossia privo di implementazione. La presenza di un solo
 metodo puramente virtuale è sufficiente a rendere la sua classe puramente virtuale a sua
 volta e pertanto non istanziabile; può solo essere usata come classe padre per altre
-derivate, che dovranno necessariamenteo fornire un'implementazione per tutti i metodi
-puramente virtuali del padre.
+derivate, che dovranno necessariamente fornire un'implementazione per tutti i metodi
+puramente virtuali del padre per essere instanziabili.
 ```cpp
 class Virt
 {
@@ -65,7 +66,7 @@ public:
 ```
 
 ## Domanda 2
-Un _copy constructor_ è un costruttore che effettua la copia profonda di un'istanza di una certa classe a partire da un lvalue reference passato.
+Un _copy constructor_ è un costruttore usato per effettuare la copia profonda di un'istanza di una certa classe a partire da un lvalue reference passato.
 
 Per copia profonda intendiamo un meccanismo di copia in cui si a a creare una nuova istanza di una certa classe del tutto indipendente da quella passata per effettuare la copia; questo vuol dire che, se la classe presenta degli attributi di tipo puntatore, la copia profonda non copierà semplicemente il valore del puntatore (facendo sì che sia l'istanza passata che quella nuova puntino allo stesso oggetto, con grandi problemi di inconsistenza e deallocazione), andrà ad allocare della nuova memoria e ne copiarà il buffer puntato dal puntatore dell'istanza passata.
 ```cpp
@@ -89,9 +90,9 @@ public:
 }
 ```
 
-Un _move contructor_ è un costruttore che "trasferisce" i campi valorizzati dell'istanza di una certa classe, passata come rvalue reference, a una nuova istanza, lasciando l'istanza di partenza in uno stato valido. Questo meccanismo è utile quando si vogliono evitare la creazione di innumerevoli oggetti temporanei che vengono distrutti subito nei passaggi per copia. 
+Un _move contructor_ è un costruttore che "trasferisce" i campi valorizzati dell'istanza di una certa classe, passata come rvalue reference, a una nuova istanza, lasciando l'istanza di partenza in uno stato valido ma non specificato. Questo meccanismo è utile quando si vogliono evitare la creazione di innumerevoli oggetti temporanei che vengono distrutti subito nei passaggi per copia. 
 
-Il funzionamento è che i campi statici vedono il loro valore copiato e, nell'istanza passata, "consumato" (settato a $0$, o a una stringa vuota), mentre invece per i campi allocati dinamicamente si copia il valore del puntatore dell'istanza passata a al puntatore di quella nuova, e quindi si assegna il puntatore dell'istanza passata a `nullptr`.
+Il funzionamento prevede che gli attributi salvati nello stack siano copiati ed il loro valore venga "consumato" (settato a 0, o a una stringa vuota) nell'rvalue passato, mentre invece per i campi allocati dinamicamente si copia direttamente il puntatore dell'rvalue nella nuova istanza, e quindi si assegna `nullptr` al puntatore dell'rvalue (sempre per consumarlo).
 ```cpp
 class A
 {
@@ -106,8 +107,9 @@ public:
         _a.i = 0; // consumo il parametro statico
 
         pb = _a.pb; // rubo il puntatore dell'istanza passata
-        _a.pb = nullptr; // lascio il puntatore in uno stato valido, per evitare
-                         // che la memoria sia cancellata da delle delete
+        _a.pb = nullptr; // lascio il puntatore in uno stato valido, ma ne consumo
+                         // il valore  per evitare che la memoria sia cancellata
+                         // da delle delete
     }
     ...
 }
@@ -115,11 +117,11 @@ public:
 
 ## Domanda 3
 Fare l'*overload* di un metodo significa creare molteplici metodi aventi lo stesso
-nome ma con delle differenze rispetto a numero e tipo di parametri passati (e implementazione).
+nome ma con delle differenze rispetto a numero e tipo di parametri passati (e, veroiosimilmente, implementazione).
 
 Data una classe base che possiede un certo metodo (`public` o `protected`), si dice
 che se ne fa l'*override* quando, in una classe figlia della stessa, si va a definire
-un metodo avente stessa firma (quindi nome e numero/tipo di parametri) di quello
+un metodo avente uguale firma (quindi nome e numero/tipo di parametri) di quello
 nella classe base, di fatto "sovrascrivendolo".
 ```cpp
 class A
@@ -132,6 +134,7 @@ public:
     int magnificentCalculation(long n);
     int magnificentCalculation(float n);
     int magnificentCalculation(double n);
+    void magnificentCalculation(double n);
     ...
 }
 

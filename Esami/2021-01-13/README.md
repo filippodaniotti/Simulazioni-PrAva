@@ -1,7 +1,7 @@
 # Esame Prog. Avanzata - 13/01/2021
 
 ## Teoria
-1. Spiegare nel dettaglio cosa si intende per _metodo astratto_ e fare degli esempi di implementazione.
+1. Spiega nel dettaglio cosa si intende per _metodo astratto_ e fai degli esempi di implementazione.
 2. Spiega la differenza tra *copy constructor* e *move constructor* e fai degli esempi di implementazione e uso di copia profonda.
 3. Spiega la differenza tra _overload_ ed *override* dei metodi; fornisci degli esempi.
 4. Cosa sono i puntatori a funzione? Spiega nel dettaglio, con esempi.
