@@ -118,18 +118,18 @@ int main(){
 ## Domanda 4
 La libreria `algorithm` fornisce delle funzioni pensate per interagire
 con le classi template della STL e fornire degli algoritmi con il
-maggior grado di astrazione rispetto al contenitore possibile.
+maggior grado di astrazione possibile rispetto al contenitore.
 
 Per fare questo alle funzioni di `algorithm` non si passa il contenitore,
-bensì dei suoi iteratori, che a loro volta sono delle classi template che
+bensì i suoi iteratori, che a loro volta sono delle classi template che
 ridefiniscono alcuni operatori con il funzionamento che questi hanno
-nell'aritmetica dei puntatore, costituendone di fatto un surrogato per i
+nell'aritmetica dei puntatori, costituendone di fatto un surrogato per i
 contenitori. Tramite gli iteratori, è possibile appunto specificare il range
 del contenitore su cui andare a effettuare l'operazione desiderata.
 
 ```cpp
 list<int> l; // si supponga popolata di valori casuali
-list<int>::iterator it = ++(++(++(it.begin()))); // ottengo iteratore che punta al terzo elemento
+list<int>::iterator it = ++(++(++(l.begin()))); // ottengo iteratore che punta al terzo elemento di l
 
 // scorro i primi tre elementi e ne resituisco il quadrato
 // sovrascrivendo la lista stessa a partire dal primo elemento
