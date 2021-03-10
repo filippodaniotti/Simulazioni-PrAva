@@ -1,6 +1,6 @@
 # Simulazione Prog. avanzata - 02
 ## Teoria
-1. Descrivi ampiamente il concetto di copia profonda; illustra poi un breve esempio in cui è presente una classe per cui ha senso creare il costruttore di copia profonda e crea anche tutti i metodi che si rendono necessar (Utilizzare pseudocodice se diventa troppo lunga).
+1. Descrivi ampiamente il concetto di copia profonda; illustra poi un breve esempio in cui è presente una classe per cui ha senso creare il costruttore di copia profonda e crea anche tutti i metodi che si rendono necessari (utilizzare pseudocodice se diventa troppo lunga).
 2. Cos'è la programmazione generica? Come si usa e quali problemi risolve? Produci un esempio creando una funzione generica `somma…(T t1, T t2)` (assumi che l’operatore `+` sia già definito come metodo per la classe `T`).
 3. Spiega tutto quello che sai sul contenitore `Set` della STL. Quale operatore deve essere definito per creare un set di elementi di una certa classe? Perché?
 4. Cos'è un move constructor? Cosa lo rende diverso da un copy constructor? Fa' un esempio di implementazione di copy constructor e di move constructor per una classe `A` che contiene un intero ed una stringa e che ha già implementato il costruttore `A(int _n, string _s){ … }`
@@ -19,7 +19,7 @@
 7. Crea un bitset di 64 bits, poi:
    * inizializzalo con una stringa;
    * stampalo;
-   * shiftarlo a sinistra di 4 posizioni;
+   * shiftalo a sinistra di 4 posizioni;
    * interpretarlo come un `long long` e stampa a quale intero corrisponde;
    * resetta il bit 17;
    * flippa tutti i bit e stampalo.

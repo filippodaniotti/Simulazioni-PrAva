@@ -41,11 +41,11 @@ class A
             if (other.bp != NULL) 
                 bp = new B(*(other.bp));
         } else {
+            delete bp;
             if (other.bp != NULL) {
                 (*bp) = *(other.bp);
             }
             else {
-                delete bp;
                 bp = NULL;
             }
         }
@@ -62,7 +62,7 @@ Abbiamo due tipi di template:
 * funzioni, si usano con `template <typename T>`
 * classi, si usano con `template <class T>`
 
-È consigliablie scrivere l'implementazione di metodi e funzioni nei file `.h`, non perché farlo in un `.cpp` esterno non sia possibile, ma semplicemente perché è complicato fuori maniera e per nessuna ragione.
+Quando si utilizzano i template è consigliablie scrivere l'implementazione di metodi e funzioni nei file `.h`, non perché farlo in un `.cpp` esterno non sia possibile, ma semplicemente perché è complicato fuori maniera e per nessuna ragione.
 
 Un esempio delle potenzialità di questo astuto ingegno è la _Standard Template Library_, che fornisce dei contenitori (strutture dati) con metodi già pronti e che appunto parametrizzano il tipo di dato.
 
@@ -76,15 +76,15 @@ T superSomma(T& t1, T& t2) const {
 
 ## Domanda 3
 Il contenitore `set` della STL è una struttura template che:
-* è organizzata come un binary search tree, per cui la ricerca di un elemento è $S(\log n) = O(\log n)$ e inserimento e rimozione sono $O(\log n)$;
+* è organizzata come un binary search tree, per cui la ricerca di un elemento è $O(\log n)$ e inserimento e rimozione sono $O(\log n)$;
 * non possiede i concetti di testa e coda, in quanto BST;
 * non può possedere elementi duplicati al suo interno;
 * non si possono modificare il valore di elementi già presenti;
 * gli elementi sono ordinati .
 
-Per quest'ultimo motivo è necessario che il tipo di dato con cui viene parametrizzato il set abbia _sempre l'operatore `<` ridefinito_, altrimenti non sarebbe possibile ordinare gli elementi in fase d'inserimento (e in generale lavorare con un BST).
+Per quest'ultimo motivo è necessario che il tipo di dato con cui viene parametrizzato il set abbia _sempre l'operatore `<` definito_, altrimenti non sarebbe possibile ordinare gli elementi in fase d'inserimento (e quindi lavorare con un BST).
 
-sono utilizzabili tutti e quattro gli iteratori (combinazioni di `const` e `reverse`).
+Sono utilizzabili tutti e quattro gli iteratori (combinazioni di `const` e `reverse`).
 
 ## Domanda 4
 Un move constructor è un costruttore che riceve in input un rvalue reference di un'istanza della classe di riferimento e permette che una nuova istanza venga inizializzata "rubando" i campi valorizzati di quella passata (che pur resta in uno stato valido), ossia impossessandosi dei suoi puntatori, senza quindi che vengano effettuate copie non necessarie.
@@ -113,12 +113,11 @@ class A
     A (A&& other) 
     {
         // mi impossesso del puntatore dell'altro
-        other = a.other; 
-
+        s = other.s; 
         // lasciamo other in uno stato valido
         // vogliamo evitare che, ad esempio, il gc tenti 
         // di eliminare due volte questo stesso buffer di memoria
-        a.other = NULL; 
+        other.s = NULL; 
 
         i = other.i;
         other.i = 0; // consumo il parametro dell'altro
