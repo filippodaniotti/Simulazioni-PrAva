@@ -10,7 +10,7 @@
    * Il Governo ha un certo numero di Ministri e un certo altro numero di Parlamentari. Questi Ministri, ovviamente, cessano di essere tali nel momento in cui il Governo cade; diversamente, i Parlamentari sopravvivono alla caduta del Governo. 
    * Ogni persona una un suo modo di blaterare, ma è certo i ministri hanno un loro blaterio caratteristico, così come i parlamentari, e se un parlamentare diventa ministro allora i suoi sproloquî saranno fatti alla maniera di un Ministro: crea, per l'appunto, un metodo `blatera()` per tutte le classi, che sarà puramente virtuale in `Persona` e, di volta in volta, verrà ridefinito nella maniera opportuna dalle classi figlie.
    * Schemino per chiarezza: ![uml](assets/es5.png)
-6. Prepara una lista di caratteri, inizializzala con $8$ delle lettere minuscole casuali e prepara aperta la pagina di reference per la libreria `algorithm`:
+6. Prepara una lista di caratteri, inizializzala con $8$ lettere minuscole casuali e prepara aperta la pagina di reference per la libreria `algorithm`:
    * verifica se tutti i caratteri nella lista sono compresi nell'intervallo `a-m`;
    * verifica se c'è almeno un'occorrenza di `x`, `y` o `z`;
    * verifica se c'è almeno un'occorrenza di lettere uguali adiacenti; in caso affermativo, rimuovile;
