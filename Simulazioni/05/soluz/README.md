@@ -4,7 +4,7 @@ L'ereditarietà è un meccanismo tipico della OOP per cui è possibile definire 
 In C++ abbiamo tre tipi di ereditarietà (si consideri una classe Base `A` e una derivata `B`):
 * `public`: tutti gli attributi definiti nell'area `public` di `A` resteranno `public` in `B`, analogamente per quelli definiti nell'area `protected`
 * `protected`: tutti gli attributi che `B` eredita da `A` risulteranno `protected` in `B`
-* `private`: tutti gli attributi che `B` eredita da `A` risulteranno `protected` in `B`
+* `private`: tutti gli attributi che `B` eredita da `A` risulteranno `private` in `B`
 
 Alcuni esempi:
 ```cpp
@@ -47,7 +47,7 @@ class foo {
 La presenza di un metodo puramente virtuale renderà la classe puramente virtuale a sua volta, vale a dire non instanziabile e utilizzabile solo per derivare delle classi figlie.
 
 ## Domanda 2
-Un _lvalue_ è un oggetto che ha un preciso indirizzo in memoria ed è referenziabile; un _rvalue_ è un oggettoz temporaneo che non possiede un indirizzo di memoria e non è referenziabile, solitamente delle costanti letterali, ad esempio (come numeri, `true`, `null`). Sono detti così perché gli _lvalue_ possono stare sia a sinistra che a destra di `=`, anche se solitamente li si trova più spesso a destra; di contro, gli _rvalue_ possono trovarsi solamente a destra dell'uguale.
+Un _lvalue_ è un oggetto che ha un preciso indirizzo in memoria ed è referenziabile; un _rvalue_ è un oggetto temporaneo che non possiede un indirizzo di memoria e non è referenziabile, solitamente delle costanti letterali, ad esempio (come numeri, `true`, `null`). Sono detti così perché gli _lvalue_ possono stare sia a sinistra che a destra di `=`, anche se solitamente li si trova più spesso a sinistra; di contro, gli _rvalue_ possono trovarsi solamente a destra dell'uguale.
 ```cpp
     int a = 3; // assegnamento lvalue = rvalue, ok
     int b = a; // lvalue = lvalue, ok
@@ -81,7 +81,7 @@ int main() {
 ## Domanda 3
 Gli iteratori sono delle classi template che fanno l'overloading di alcuni operatori secondo il comportamento che questi hanno nell'aritmetica dei puntatori, di fatto surrogandone il funzionamento e rendendolo conveniente all'uso delle classi della STL. Esiste una gerarchia: _Random access > Bidirectional > Forfard > Input | Output_; a seconda del contenitore della STL in questione, i suoi iteratori staranno a diversi livelli della gerarchia (una lista monodirezionale non può avere un iteratore bidirezionale).
 
-Gli iteratori possono essere ancche di altri tipi: possono essere _const_ (non consentono di modificare il valore puntato), _reverse_ (`begin()` e `end()` sono invertiti), o ovviamente anche questi ultimi assieme.
+Gli iteratori possono essere anche di altri tipi: possono essere _const_ (non consentono di modificare il valore puntato), _reverse_ (`begin()` e `end()` sono invertiti), o ovviamente anche questi ultimi assieme.
 
 ```cpp
 int main() {
@@ -113,7 +113,7 @@ int main() {
 Il multithreading è un meccanismo che consente di trarre vantaggio dai processori di architettura multicore facendo in modo che alcune funzioni vadano eseguite come processi separati (thread) in parallelo su diversi core. Se usato sapientemente può fornire un boost di prestazioni ed efficienza decisamente non trascurabile, ma pone un numero di sfide maggiore per il programmatore.
 
 Uno dei problemi più noti è il cosiddetto _data race_ problem: dal momento che i processi nei diversi thread condividono lo stesso spazio di indirizzamento, potrebbero verificarsi delle inconsistenze nella scrittura/lettura di alcune variabili, se le operazioni su di esse non sono adeguatamente controllate. Esistono diverse soluzioni:
-* si può fare affidament alla libreria atomic;
+* si può fare affidamento alla libreria atomic;
 * si può utilizzare mutex;
 * semafori.
 

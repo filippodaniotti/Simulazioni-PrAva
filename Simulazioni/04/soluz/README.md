@@ -19,7 +19,9 @@ class Amatriciana
 
 int main () {
   Pasta* p = new Amatriciana();
-  p.manteca() // se non avessimo dichiarato manteca() come virtual avremmo errore
+  p.manteca() // se non avessimo dichiarato manteca() come virtual 
+              // avremmo chiamato Pasta::manteca() invece grazie a
+              // virtual chiamiamo Amatriciana::manteca()
 }
 ```
 Inoltre, con una precisa sintassi, `virtual` va a indicare che un certo metodo è _puramente virtuale_, ossia che è una firma senza implementazione. La presenza di un metodo puramente virtuale rende la classe stessa puramente virtuale, vale a dire non istanziabile e utilizzabile esclusivamente come classe base da cui derivare altre classi.
@@ -58,7 +60,7 @@ class TA
 }
 ```
 ## Domanda 2
-Gli iteratori sono delle classi template che fanno l'overloading di alcuni operatori secondo il comportamento che questi hanno nell'aritmetica dei puntatori, di fatto surrogandone il funzionamento e rendendolo conveniente all'uso delle classi della STL. Sono organizzati secondo una particolare gerarchia: _Random access > Bidirectional > Forfard > Input | Output_; inoltre, possono avere l'ulteriore qualificazione di `reverse`, per attraversare il contenitore al contrario, `const`, per prevenire la modifica degli elementi del contenitore durante l'attraversamento, e ovviamente la combinazione di questi ultimi due.
+Gli iteratori sono delle classi template che fanno l'overloading di alcuni operatori secondo il comportamento che questi hanno nell'aritmetica dei puntatori, di fatto surrogandone il funzionamento e rendendolo conveniente all'uso delle classi della STL. Sono organizzati secondo una particolare gerarchia: _Random access > Bidirectional > Forward > Input | Output_; inoltre, possono avere l'ulteriore qualificazione di `reverse`, per attraversare il contenitore al contrario, `const`, per prevenire la modifica degli elementi del contenitore durante l'attraversamento, e ovviamente la combinazione di questi ultimi due.
 
 ## Domanda 3
 Un costruttore implicito è un costuttore a un parametro che viene chiamato automaticamente nel caso in cui a una funzione che accetta un'istanza della classe del costruttore si passi un oggetto del tipo accettato dal costruttore stesso; questo processo è detto _conversione implicita di tipo_.
@@ -101,4 +103,14 @@ int main() {
 ```
 
 ## Domanda 4
-miao
+Allora, si può introdurre la metaprogrammazione in `C++` solo se si è dei masochisti perditempo; in tale evenienza il meccansimo del linguaggio che si va a sfrutare per introdurre metaprogrammazione è il templating.
+
+Il templating permette di specificare tipi che vengono risolti solo a compile time, inoltre questo meccanismo è abbastanza flessible da permettere di implementare controllo condizionale e ricorsione.
+
+Io ripropongo qui come esempio di utilizzo del template metaprogramming il calssico calcolo del fattoriale grazie ai template.
+
+...
+esempi qui
+...
+
+Il template metaprogramming `C++` in è un mezzo che permette di scrivere programmi che eseguono determinate operazioni a compile time invece che a runtime risparmiando tempo di esecuzione. Un altro use case è quello di definire a compile time dei tipi in maniera specifica in base alle caratteristiche della macchina su cui avviene la compilazione.

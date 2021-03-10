@@ -32,6 +32,8 @@ degli errori, intercettati e gestiti dalle eccezioni già presenti nelle libreri
 sarebbe molto difficile per il programmatore andare a scoprire cosa è andato storto
 e dove.
 
+D'altro canto potrebbe anche verificarsi il contrario, ovvero se importiamo una libreria che lancia eccezioni non gestite a nostra insaputa il nostro programma potrebbe bloccarsi in modi inaspettati.
+
 Ecco alcune tra le eccezioni più comuni:
 * `throw "casino"; catch (const char* msg)`: semplice stringa
 * `throw invalid_argument("valore negativo")`

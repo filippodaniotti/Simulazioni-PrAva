@@ -16,6 +16,6 @@
     * `static float sf`
   
     Fa in modo che si possano inizializzare i valori costanti con un costruttore. Inizializza si a 42 e sf a 3.14. Crea un metodo per stampare gli attributi statici.
-8. Butta un occhio all'UML sotto: crea una classe condimento, con nome e costo. Crea una classe piatto, con nome ed eventuale condimento. Crea una classe Pasto, può contenere da 1 a n primi (lista) e può contenere anche un secondo. Infine crea una classe Mensa con una lista di pasti ed una di condimenti possibili. Rispettando lo schemino crea tutti i costruttori ma non creare costruttori a 0 parametri. Fa in modo che Pasto sia stampabile (stampando tutti i primi e, se presente, anche il secondo). 
+8. Butta un occhio all'UML sotto: crea una classe `Condimento`, con nome e costo. Crea una classe `Piatto`, con nome ed eventuale condimento. Crea una classe `Pasto`, può contenere da 1 a n primi (lista) e può contenere anche un secondo. Infine crea una classe `Mensa` con una lista di pasti ed una di condimenti possibili. Rispettando lo schemino crea tutti i costruttori ma non creare costruttori a 0 parametri. Fa in modo che Pasto sia stampabile (stampando tutti i primi e, se presente, anche il secondo). 
 
     ![es8](assets/es8.png)
