@@ -88,7 +88,27 @@ garbage collector o cose simili devi fare in modo che il suo destino sia
 separato da quello di `_a`.
 
 ## Domanda 3
-miao
+Okay, bisogna affrontare anche questa domanda prima o poi no?
+
+Il template metaprogramming è un metodo di metaprogrammazione che si è venuto a creare per sbaglio (non scherzo, nessuno l'ha voluto, un giorno un tizio ha aperto devcpp e se l'è troato davanti).
+
+Metaprogrammazione è unome altezzoso che diamo a quei programmi che prendono come input altri programmi e anche se sembra una cosa esotica ti assicuro che anche tu caro lettore hai già usato attivamente qualche metaprogramma se hai usato almeno una volta in vita un compilatore.
+
+Nel cpp la metaprogrammazione è resa possibile dal meccanismo dei template, questi infatti ci permettono di definire tipi generici con un certo livello di flessibilità, tanto che usando un po' di ingegno si può andare a definire dei tipi che quando vengono _risolti_ a compile time inducono il calcolo ricorsivo o addirittura la specifica di costrutti if.
+
+Presentiamo quindi ora un esempio di implementazione del calcolo dei fattoriali tramite template metaprogramming.
+
+...
+esempi qui
+...
+
+Presentiamo quindi ora un esempio di implementazione di istruzione condizioale tramite template metaprogramming.
+
+...
+esempi qui
+...
+
+Come si è visto quindi il template metaprogramming è un mezzo che permette di scrivere programmi che eseguono determinate operazioni a compile time invece che a runtime risparmiando tempo di esecuzione. Un altro use case è quello di definire a compile time dei tipi in maniera specifica in base alle caratteristiche della macchina su cui avviene la compilazione. 
 
 ## Domanda 4
 Il fatto è che, come per tutte le domande nella vita, la risposta dipende dalla
@@ -99,12 +119,12 @@ quanto riguarda le questioni di indirizzamento all’interno del vettore
 (letteralmente, io posso fare `vettore[11]` e beccare il 12° elemento del vettore
 lì che mi aspetta), questo significa che posso trovare un elemento che sta nel
 mezzo del vettore senza fastidio e con una complessità che rasenta quella di
-sbucciare un mandarino con una katana. 
+sbucciare un mandarino con una katana (che in realtà secondo me è abbastanza complicato, ma cosa ne so io, purtroppo io ho scelto informatica quella volta... _ndr_). 
 
 Da questo punto di vista uno
 senz’altro direbbe che è molto meglio il vettore della lista: nella lista, se voglio 
 beccare il 12° elemento non ho altro modo se non quello di passare uno a
-uno i primi 11 elementi. 
+uno i primi 11 elementi.
 
 Ma la lista ha fatto anche lei delle cose buone. Si veda alla voce “inserimento
 e rimozione di un elemento”; per inserire un nuovo elemnto in una lista
