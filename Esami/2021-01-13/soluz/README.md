@@ -1,6 +1,6 @@
 ## Domanda 1
 Un metodo si definisce astratto (o, per dirla in maniera più propria per `C++`, *virtuale*)
-quando ne viene forzato il late binding anteponendogli alla dichiarazione del tipo di ritorno la keyword `virtual`.
+quando ne viene forzato il late binding anteponendogli alla firma la keyword `virtual`.
 
 Si forza il late binding nelle situazioni in cui facciamo uso di ereditarietà
 e si corre il rischio che, istanziando una classe a runtime mediante la dichiarazione
@@ -117,7 +117,7 @@ public:
 
 ## Domanda 3
 Fare l'*overload* di un metodo significa creare molteplici metodi aventi lo stesso
-nome ma con delle differenze rispetto a numero e tipo di parametri passati (e, veroiosimilmente, implementazione).
+nome ma con delle differenze rispetto a numero e tipo di parametri passati (e, verosimilmente, implementazione).
 
 Data una classe base che possiede un certo metodo (`public` o `protected`), si dice
 che se ne fa l'*override* quando, in una classe figlia della stessa, si va a definire

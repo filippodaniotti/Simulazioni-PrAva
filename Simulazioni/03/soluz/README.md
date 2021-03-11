@@ -97,16 +97,46 @@ Metaprogrammazione è unome altezzoso che diamo a quei programmi che prendono co
 Nel cpp la metaprogrammazione è resa possibile dal meccanismo dei template, questi infatti ci permettono di definire tipi generici con un certo livello di flessibilità, tanto che usando un po' di ingegno si può andare a definire dei tipi che quando vengono _risolti_ a compile time inducono il calcolo ricorsivo o addirittura la specifica di costrutti if.
 
 Presentiamo quindi ora un esempio di implementazione del calcolo dei fattoriali tramite template metaprogramming.
+```cpp
+#include <iostream>
 
-...
-esempi qui
-...
+template<unsigned int n> // caso induttivo
+struct factorial {
+  enum { value=n*factorial<n-1>::value };
+};
+
+template<> // caso base
+struct factorial<0>{
+  enum { value=1 };
+};
+
+int main(){
+  // verranno definiti a compile-time i fattoriali da 7 in giù
+  cout << factorial<7>::value;
+}
+```
 
 Presentiamo quindi ora un esempio di implementazione di istruzione condizioale tramite template metaprogramming.
+```cpp
+#include <iostream>
 
-...
-esempi qui
-...
+template <bool condition, class Then, class Else>
+struct IF {
+  typedef Then RET;
+};
+
+// caso particolare del template di sopra
+template <class Then, class Else>
+struct IF<false, Then, Else> {
+  typedef Else RET;
+};
+
+int main(){
+  // definizione diversa a tempo di compilazione in base a sizeof
+  IF< sizeof(int)<sizeof(long), long, int >::RET i;
+  cout << sizeof(i) << endl;
+}
+```
 
 Come si è visto quindi il template metaprogramming è un mezzo che permette di scrivere programmi che eseguono determinate operazioni a compile time invece che a runtime risparmiando tempo di esecuzione. Un altro use case è quello di definire a compile time dei tipi in maniera specifica in base alle caratteristiche della macchina su cui avviene la compilazione. 
 

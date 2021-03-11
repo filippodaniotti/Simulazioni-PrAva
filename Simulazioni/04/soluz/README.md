@@ -108,9 +108,23 @@ Allora, si può introdurre la metaprogrammazione in `C++` solo se si è dei maso
 Il templating permette di specificare tipi che vengono risolti solo a compile time, inoltre questo meccanismo è abbastanza flessible da permettere di implementare controllo condizionale e ricorsione.
 
 Io ripropongo qui come esempio di utilizzo del template metaprogramming il calssico calcolo del fattoriale grazie ai template.
+```cpp
+#include <iostream>
 
-...
-esempi qui
-...
+template<unsigned int n> // caso induttivo
+struct factorial {
+  enum { value=n*factorial<n-1>::value };
+};
+
+template<> // caso base
+struct factorial<0>{
+  enum { value=1 };
+};
+
+int main(){
+  // verranno definiti a compile-time i fattoriali da 7 in giù
+  cout << factorial<7>::value;
+}
+```
 
 Il template metaprogramming `C++` in è un mezzo che permette di scrivere programmi che eseguono determinate operazioni a compile time invece che a runtime risparmiando tempo di esecuzione. Un altro use case è quello di definire a compile time dei tipi in maniera specifica in base alle caratteristiche della macchina su cui avviene la compilazione.

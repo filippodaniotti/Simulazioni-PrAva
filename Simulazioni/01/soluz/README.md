@@ -26,7 +26,7 @@ Inoltre, l'ereditarietà virtuale risolve anche il problema di chiamate multiple
 ## Domanda 3
 Le eccezioni in `C++` sono un meccanismo di segnalazione degli errori che permette di regolare il comportamento di un programma nel caso si verifichino degli errori inaspettati a runtime. È utile nel caso in cui un programma sia molto delicato e non si vuole che questo venga interrotto senza prima compiere delle operazioni di messa in sicurezza del sistema. 
 
-Le eccezioni possono essere lanciate dal programma quando si verificano determinate condizioni per cui è stato predisposto il lancio di queste; esse possono poi essere “catturate” tramite l’impiego di blocchi `catch` che appunto contengono il codice da eseguire una volta che si verifica una determinata eccezione.
+Le eccezioni possono essere lanciate dal programma quando si verificano determinate condizioni per cui è stato predisposto il lancio di queste; queste possono poi essere “catturate” tramite l’impiego di blocchi `catch` che appunto contengono il codice da eseguire una volta che si verifica una determinata eccezione.
 
 La sintassi completa è la seguente:
 ```cpp
