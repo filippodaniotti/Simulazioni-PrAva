@@ -1,11 +1,7 @@
 ## Domanda 1
-Un metodo si definisce astratto (o, per dirla in maniera più propria per `C++`, *virtuale*)
-quando ne viene forzato il late binding anteponendogli alla firma la keyword `virtual`.
+Un metodo si definisce astratto (o, per dirla in maniera più propria per `C++`, *virtuale*) quando ne viene forzato il late binding anteponendogli alla firma la keyword `virtual`.
 
-Si forza il late binding nelle situazioni in cui facciamo uso di ereditarietà
-e si corre il rischio che, istanziando una classe a runtime mediante la dichiarazione
-di un puntatore alla classe padre, si richiami un metoodo pensando di invocare quello della classe figlia (classe effettiva a runtime) ma so vada in effetti ad usare quello della classe padre (classe statica riconosciuta a compile time);
-per l'appunto, risolvendo il binding del metodo a runtime si risolve questo problema.
+Si forza il late binding nelle situazioni in cui facciamo uso di ereditarietà e si corre il rischio che, istanziando una classe a runtime mediante la dichiarazione di un puntatore alla classe padre, si richiami un metoodo pensando di invocare quello della classe figlia (classe effettiva a runtime) ma so vada in effetti ad usare quello della classe padre (classe tatica riconosciuta a compile time); per l'appunto, risolvendo il binding del metodo a runtime si risolve questo problema.
 
 ```cpp
 class A
@@ -35,12 +31,9 @@ int main() {
 }
 ```
 
-Inoltre, mediante una precisa sintassi, la keyword `virtual` può essere usata per creare
-un metodo *puramente virtuale*, ossia privo di implementazione. La presenza di un solo
-metodo puramente virtuale è sufficiente a rendere la sua classe puramente virtuale a sua
-volta e pertanto non istanziabile; può solo essere usata come classe padre per altre
-derivate, che dovranno necessariamente fornire un'implementazione per tutti i metodi
-puramente virtuali del padre per essere instanziabili.
+Inoltre, mediante una precisa sintassi, la keyword `virtual` può essere usata per creare un metodo *puramente virtuale*, ossia privo di implementazione. La presenza di un solo
+metodo puramente virtuale è sufficiente a rendere la sua classe puramente virtuale a sua volta e pertanto non istanziabile; può solo essere usata come classe padre per altre
+derivate, che dovranno necessariamente fornire un'implementazione per tutti i metodi puramente virtuali del padre per essere instanziabili.
 ```cpp
 class Virt
 {
@@ -116,13 +109,9 @@ public:
 ```
 
 ## Domanda 3
-Fare l'*overload* di un metodo significa creare molteplici metodi aventi lo stesso
-nome ma con delle differenze rispetto a numero e tipo di parametri passati (e, verosimilmente, implementazione).
+Fare l'*overload* di un metodo significa creare molteplici metodi aventi lo stesso nome ma con delle differenze rispetto a numero e tipo di parametri passati (e, verosimilmente, implementazione).
 
-Data una classe base che possiede un certo metodo (`public` o `protected`), si dice
-che se ne fa l'*override* quando, in una classe figlia della stessa, si va a definire
-un metodo avente uguale firma (quindi nome e numero/tipo di parametri) di quello
-nella classe base, di fatto "sovrascrivendolo".
+Data una classe base che possiede un certo metodo (`public` o `protected`), si dice che se ne fa l'*override* quando, in una classe figlia della stessa, si va a definire un metodo avente uguale firma (quindi nome e numero/tipo di parametri) di quello nella classe base, di fatto "sovrascrivendolo".
 ```cpp
 class A
 {

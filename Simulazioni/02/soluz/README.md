@@ -76,7 +76,7 @@ T superSomma(T& t1, T& t2) const {
 
 ## Domanda 3
 Il contenitore `set` della STL è una struttura template che:
-* è organizzata come un binary search tree, per cui la ricerca di un elemento è $S(\log n) = O(\log n)$ e inserimento e rimozione sono $O(\log n)$;
+* è organizzata come un binary search tree, per cui la ricerca di un elemento è S(log n) = O(log n) e inserimento e rimozione sono O(log n);
 * non possiede i concetti di testa e coda, in quanto BST;
 * non può possedere elementi duplicati al suo interno;
 * non si possono modificare il valore di elementi già presenti;

@@ -26,48 +26,28 @@ auto whatever = [bias] (int n) mutable -> int {
 ```
 
 ## Domanda 2
-La distinzione tra lvalue e rvalue a primo acchitto può essere 
-semplificata con questa spiegazione: un lvalue si trova spesso a destra
-dell’uguale mentre un rvalue si trova a sinistra. Ma cosa significa veramente questo? 
+La distinzione tra lvalue e rvalue a primo acchitto può essere semplificata con questa spiegazione: un lvalue si trova spesso a destra dell’uguale mentre un rvalue si trova a sinistra. Ma cosa significa veramente questo? 
 
-Lvalue sono tutti quei valori che hanno uno spazio dedicato nella memoria dello 
-stack del programma e che quindi possono essere dereferenziati. 
+Lvalue sono tutti quei valori che hanno uno spazio dedicato nella memoria dello stack del programma e che quindi possono essere dereferenziati. 
 
-Rvalue sono tutti quei valori che sono temporanei (nella riga `a=2;` il 2 è un
-intero temporaneo che non ha un indirizzo di memoria nello stack ma si trova 
-nello spazio di indirizzamento delle variabili temporanee, che a quanto pare è 
-un mondo a sé); i temporanei non sono dereferenziabili. O almeno così 
-fino al `C++11`: proprio in questa edizione del nostro linguaggio preferito è stata 
-introdotta la possibilità di ottenere una referenza a rvalue utilizzando l'operatore `&&`. 
-Questo rende possibile appunto ottenere una referenza a valore temporaneo. 
+Rvalue sono tutti quei valori che sono temporanei (nella riga `a=2;` il 2 è un intero temporaneo che non ha un indirizzo di memoria nello stack ma si trova  nello spazio di indirizzamento delle variabili temporanee, che a quanto pare è un mondo a sé); i temporanei non sono dereferenziabili. O almeno così 
+fino al `C++11`: proprio in questa edizione del nostro linguaggio preferito è stata introdotta la possibilità di ottenere una referenza a rvalue utilizzando l'operatore `&&`. Questo rende possibile appunto ottenere una referenza a valore temporaneo. 
 
-A cosa serve una referenza a valore temporaneo? Serve per poter
-implementare quella che viene chiamata _move semantics_, ovvero un
-meccanismo per rendere efficiente la creazione di variabili usando invece che
-un costruttore di copia un costruttore move.
+A cosa serve una referenza a valore temporaneo? Serve per poter implementare quella che viene chiamata _move semantics_, ovvero un meccanismo per rendere efficiente la creazione di variabili usando invece che un costruttore di copia un costruttore move.
 
-Mentre con il costruttore di copia quando noi istanziamo una certa variabile
-di classe `A`
+Mentre con il costruttore di copia quando noi istanziamo una certa variabile di classe `A`
 ```cpp
 A a1 = new A(12);
-``` 
-a1 prenderà il valore di `A(12)` facendo una copia dell’istanza temporanea che
-si crea a destra dell’uguale, con il costruttore di move
+```
+`a1` prenderà il valore di `A(12)` facendo una copia dell’istanza temporanea che si crea a destra dell’uguale, con il costruttore di move
 ```cpp
 A a2 = A::move(new A(12));
 ```
-L’istanza temporanea non viene copiata ma viene a tutti gli effetti “spostata”
-in `a2`, così da evitare il peso di una copia.
- 
-Naturalmente questo non ha senso se la classe `A` contiene solo un intero, ma
-inizia ad acquistare senso se A contiene matrici o oggetti molto pesanti
-allocati nell’heap: risparmiare la copia di questi è senza dubbio una buona
-idea.
+L’istanza temporanea non viene copiata ma viene a tutti gli effetti “spostata” in `a2`, così da evitare il peso di una copia.
 
-Il costruttore move viene quindi implementato in modo da rubare tutti i
-puntatori dell’istanza temporanea, che tanto è temporanea e non serve a
-nessuno, e darli all’istanza di cui ci importa qualcosa effettivamente, sotto un
-esempio:
+Naturalmente questo non ha senso se la classe `A` contiene solo un intero, ma inizia ad acquistare senso se A contiene matrici o oggetti molto pesanti allocati nell’heap: risparmiare la copia di questi è senza dubbio una buona idea.
+
+Il costruttore move viene quindi implementato in modo da rubare tutti i puntatori dell’istanza temporanea, che tanto è temporanea e non serve a nessuno, e darli all’istanza di cui ci importa qualcosa ffettivamente, sotto un esempio:
 ```cpp
 class A 
 {
@@ -81,11 +61,7 @@ public:
     }
 }
 ```
-A questo punto i più curiosi tra di noi si chiederanno perché annullare il
-puntatore del temporaneo? La risposta è presto detta: non sai mai che fine
-farà il temporaneo, quindi se vuoi evitare che il caro n venga distrutto dal
-garbage collector o cose simili devi fare in modo che il suo destino sia
-separato da quello di `_a`.
+A questo punto i più curiosi tra di noi si chiederanno perché annullare il puntatore del temporaneo? La risposta è presto detta: non sai mai che fine farà il temporaneo, quindi se vuoi evitare che il caro n venga distrutto dal garbage collector o cose simili devi fare in modo che il suo destino sia separato da quello di `_a`.
 
 ## Domanda 3
 Okay, bisogna affrontare anche questa domanda prima o poi no?
@@ -141,29 +117,14 @@ int main(){
 Come si è visto quindi il template metaprogramming è un mezzo che permette di scrivere programmi che eseguono determinate operazioni a compile time invece che a runtime risparmiando tempo di esecuzione. Un altro use case è quello di definire a compile time dei tipi in maniera specifica in base alle caratteristiche della macchina su cui avviene la compilazione. 
 
 ## Domanda 4
-Il fatto è che, come per tutte le domande nella vita, la risposta dipende dalla
-situazione. 
+Il fatto è che, come per tutte le domande nella vita, la risposta dipende dalla situazione. 
 
-Da un lato ci troviamo il vettore che è comodo come un array per
-quanto riguarda le questioni di indirizzamento all’interno del vettore
-(letteralmente, io posso fare `vettore[11]` e beccare il 12° elemento del vettore
-lì che mi aspetta), questo significa che posso trovare un elemento che sta nel
-mezzo del vettore senza fastidio e con una complessità che rasenta quella di
-sbucciare un mandarino con una katana (che in realtà secondo me è abbastanza complicato, ma cosa ne so io, purtroppo io ho scelto informatica quella volta... _ndr_). 
+Da un lato ci troviamo il vettore che è comodo come un array per quanto riguarda le questioni di indirizzamento all’interno del vettore (letteralmente, io posso fare `vettore[11]` e beccare il 12° elemento del vettore lì che mi aspetta), questo significa che posso trovare un elemento che sta nel mezzo del vettore senza fastidio e con una complessità che rasenta quella di sbucciare un mandarino con una katana (che in realtà secondo me è abbastanza complicato, ma cosa ne so io, purtroppo io ho scelto informatica quella volta... _ndr_). 
 
-Da questo punto di vista uno
-senz’altro direbbe che è molto meglio il vettore della lista: nella lista, se voglio 
-beccare il 12° elemento non ho altro modo se non quello di passare uno a
-uno i primi 11 elementi.
+Da questo punto di vista uno senz’altro direbbe che è molto meglio il vettore della lista: nella lista, se voglio beccare il 12° elemento non ho altro modo se non quello di passare uno a uno i primi 11 elementi.
 
-Ma la lista ha fatto anche lei delle cose buone. Si veda alla voce “inserimento
-e rimozione di un elemento”; per inserire un nuovo elemnto in una lista
-abbiamo una complessità $O(1)$, mentre per inserire un mandarino nel vettore abbiamo
-una complessità ammortizzata costante
+Ma la lista ha fatto anche lei delle cose buone. Si veda alla voce “inserimento e rimozione di un elemento”; per inserire un nuovo elemnto in una lista abbiamo una complessità O(1), mentre per inserire un mandarino nel vettore abbiamo una complessità ammortizzata costant.
 
-Detto in parole un filo serie il vettore offre accesso a posizioni random con
-costo costante ma le operazioni di inserimento o rimozione di un elemento
-possono rivelarsi molto pesanti; conversamente la lista offre inserimento e
-rimozione con costo costante ma accesso random con costo lineare.
+Detto in parole un filo serie il vettore offre accesso a posizioni random con costo costante ma le operazioni di inserimento o rimozione di un elemento possono rivelarsi molto pesanti; conversamente la lista offre inserimento e rimozione con costo costante ma accesso random con costo lineare.
 
 Sono entrambi iterabili ordinatamente con iteratori di tutti i tipi. 
