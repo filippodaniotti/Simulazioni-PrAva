@@ -25,7 +25,7 @@ int main()
         return n > 0;
     }) << endl;
 
-    vector<int>::iterator it = ++(++(++(v.begin())));
+    vector<int>::iterator it = v.begin() + 3;
     cout << "1 positivo nei primi 3 -> " << any_of(v.begin(), it, [](int n) {
         return n > 0;
     }) << endl;
