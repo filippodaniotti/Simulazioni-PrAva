@@ -19,13 +19,14 @@
 7. Crea un bitset di 64 bits, poi:
    * inizializzalo con una stringa;
    * stampalo;
-   * shiftalo a sinistra di 4 posizioni;
+   * shiftalo a destra di 4 posizioni;
    * interpretarlo come un `long long` e stampa a quale intero corrisponde;
    * resetta il bit 17;
    * flippa tutti i bit e stampalo.
-8. Crea una lista di stringhe, tale lista deve contenere 5 nomi di persone, poi esegui le seguenti operazioni, curandoti di stampare la lista alla fine di ciascuna:
-   * inserisci nella lista due Paolo e 3 Giovanni in posizioni casuali (create con `rand()`);
+8. Crea una lista di 10 nomi di persone (stringhe), poi esegui le seguenti operazioni curandoti di stampare la lista alla fine di ciascuna:
+   * inizializza la lista inserendo 5 nomi a piacere
+   * inserisci poi nella lista due Paolo e tre Giovanni in posizioni casuali (create con `rand()`);
    * usando funzioni di algorithm ruota la lista nelle posizioni [0-7] usando come perno (middle) la posizione 3 ;
    * rimpiazza tutti i Paolo con Franco;
    * rimuovi tutti i Franchi che trovi nelle prime 6 posizioni;
-   * usando una lambda stampa tutti i nomi con lunghezza minore o uguale a 5.
+   * usando una lambda stampa tutti i nomi con lunghezza minore o uguale a 6.
