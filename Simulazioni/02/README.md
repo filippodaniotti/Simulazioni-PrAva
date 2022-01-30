@@ -24,7 +24,8 @@
    * resetta il bit 17;
    * flippa tutti i bit e stampalo.
 8. Crea una lista di 10 nomi di persone (stringhe), poi esegui le seguenti operazioni curandoti di stampare la lista alla fine di ciascuna:
-   * inserisci nella lista quattro Paolo e sei Giovanni in posizioni casuali (create con `rand()`);
+   * inizializza la lista inserendo 5 nomi a piacere
+   * inserisci poi nella lista due Paolo e tre Giovanni in posizioni casuali (create con `rand()`);
    * usando funzioni di algorithm ruota la lista nelle posizioni [0-7] usando come perno (middle) la posizione 3 ;
    * rimpiazza tutti i Paolo con Franco;
    * rimuovi tutti i Franchi che trovi nelle prime 6 posizioni;
