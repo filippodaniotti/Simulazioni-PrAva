@@ -13,7 +13,7 @@
 6. Prepara una lista di caratteri, inizializzala con $8$ lettere minuscole casuali e prepara aperta la pagina di reference per la libreria `algorithm`:
    * verifica se tutti i caratteri nella lista sono compresi nell'intervallo `a-m`;
    * verifica se c'è almeno un'occorrenza di `x`, `y` o `z`;
-   * verifica se c'è almeno un'occorrenza di lettere uguali adiacenti; in caso affermativo, rimuovile;
+   * verifica se c'è almeno un'occorrenza di lettere uguali adiacenti; in caso affermativo, rimuovi la prima delle due, in modo che nella stringa finale non siano più presenti due caratteri uguali adiacenti
    * verifica se la stringa formata dalla concatenazione di questi caratteri è una permutazione della stringa `"bucefalo"`.
 7. Hai la classe `A` che è povera e possiede solamente un `int i` e un `B* bp`; rallegrale la giornata donandole un costruttore a un parametro e una ridefinizione degli operatori `+`, `-`, `++` preincremento, `++` postincremento, `=` (deep copy + move).
 8. You know what to do: 
